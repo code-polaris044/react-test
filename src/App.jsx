@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { ColorMessage } from "./components/ColoredMessage";
+import { CssModules } from "./components/CssModules";
 
 export const App = () => {
 	console.log("レンダリング");
@@ -15,12 +16,15 @@ export const App = () => {
 
 	return (
 		<>
-			<h1 style={ { color: "red" }}>こんにちは</h1>
-			<ColorMessage color="blue">元気ですか</ColorMessage>
-			<ColorMessage color="pink">元気ですよ</ColorMessage>
-			<button type="button" onClick={onClickButton} >ボタン</button>
+			<h1 style={{ color: "red" }}>こんにちは</h1>
+			<ColorMessage color='blue'>元気ですか</ColorMessage>
+			<ColorMessage color='pink'>元気ですよ</ColorMessage>
+			<button type='button' onClick={onClickButton}>
+				ボタン
+			</button>
 			<p>{num}</p>
+			<CssModules />
 		</>
 	);
-}
+};
 
