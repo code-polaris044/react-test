@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { ColorMessage } from "./components/ColoredMessage";
 import { CssModules } from "./components/CssModules";
+import { StyledJsx } from "./components/StyledJsx";
+import { StyleComponents } from "./components/StyleComponents";
 
 export const App = () => {
 	console.log("レンダリング");
@@ -24,6 +26,8 @@ export const App = () => {
 			</button>
 			<p>{num}</p>
 			<CssModules />
+			<StyledJsx />
+			<StyleComponents />
 		</>
 	);
 };
