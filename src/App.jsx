@@ -3,6 +3,8 @@ import { ColorMessage } from "./components/ColoredMessage";
 import { CssModules } from "./components/CssModules";
 import { StyledJsx } from "./components/StyledJsx";
 import { StyleComponents } from "./components/StyleComponents";
+import { Emotion } from "./components/Emotion";
+import { TailwindCss } from "./components/TailWindcss";
 
 export const App = () => {
 	console.log("レンダリング");
@@ -28,6 +30,8 @@ export const App = () => {
 			<CssModules />
 			<StyledJsx />
 			<StyleComponents />
+			<Emotion />
+			<TailwindCss />
 		</>
 	);
 };
