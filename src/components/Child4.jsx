@@ -1,9 +1,11 @@
+import { memo } from "react";
+
 const style = {
 	height: "200px",
 	backgroundColor: "wheat",
 };
 
-export const Child4 = () => {
+export const Child4 = memo(() => {
 	console.log("Child4 レンダリング");
 
 	return (
@@ -11,4 +13,4 @@ export const Child4 = () => {
 			<p>Child4</p>
 		</div>
 	);
-};
+});

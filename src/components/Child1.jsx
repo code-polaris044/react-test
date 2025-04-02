@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { Child2 } from "./Child2";
 import { Child3 } from "./Child3";
 
@@ -7,14 +8,19 @@ const style = {
 	padding: "8Ppx",
 };
 
-export const Child1 = () => {
+export const Child1 = memo((props) => {
 	console.log("Child1 レンダリング");
+
+	const { onClickReset } = props;
 
 	return (
 		<div style={style}>
 			<p>Child1</p>
+			<button type='submit' onClick={onClickReset}>
+				リセット
+			</button>
 			<Child2 />
 			<Child3 />
 		</div>
 	);
-};
+});
