@@ -1,38 +1,22 @@
-import { useState, useEffect } from 'react';
-import { ColorMessage } from "./components/ColoredMessage";
-import { CssModules } from "./components/CssModules";
-import { StyledJsx } from "./components/StyledJsx";
-import { StyleComponents } from "./components/StyleComponents";
-import { Emotion } from "./components/Emotion";
-import { TailwindCss } from "./components/TailWindcss";
+import { useState } from "react";
+import { Child1 } from "./components/Child1";
+import { Child4 } from "./components/Child4";
 
 export const App = () => {
-	console.log("レンダリング");
+	console.log("Appレンダリング");
+
 	const [num, setNum] = useState(0);
 
-	useEffect(() => {
-		alert(`現在の数値: ${num}`);
-	}, [num]);
-
 	const onClickButton = () => {
-		setNum((prev) => prev + 1);
+		setNum(num + 1);
 	};
 
 	return (
 		<>
-			<h1 style={{ color: "red" }}>こんにちは</h1>
-			<ColorMessage color='blue'>元気ですか</ColorMessage>
-			<ColorMessage color='pink'>元気ですよ</ColorMessage>
-			<button type='button' onClick={onClickButton}>
-				ボタン
-			</button>
+			<button type='submit'>{onClickButton}ボタン</button>
 			<p>{num}</p>
-			<CssModules />
-			<StyledJsx />
-			<StyleComponents />
-			<Emotion />
-			<TailwindCss />
+			<Child1 />
+			<Child4 />
 		</>
 	);
 };
-
