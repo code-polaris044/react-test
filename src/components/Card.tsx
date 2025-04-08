@@ -1,6 +1,7 @@
 import { EditButton } from "./EditButton";
+import type { CSSProperties } from "react";
 
-const style = {
+const style: CSSProperties = {
 	width: "300px",
 	height: "200px",
 	margin: "8px",
@@ -8,17 +9,18 @@ const style = {
 	display: "flex",
 	flexDirection: "column",
 	justifyContent: "center",
-	alignItem: "center",
+	alignItems: "center",
 };
 
-export const Card = (props) => {
+export const Card = () => {
 	//propsとして管理者フラグを受け取る
-	const { isAdmin } = props;
+	// const { isAdmin } = props;
 
 	return (
 		<div style={style}>
 			<p>山田太郎</p>
-			<EditButton isAdmin={isAdmin} />
+			{/* <EditButton isAdmin={isAdmin} /> */}
+			<EditButton />
 		</div>
 	);
 };
