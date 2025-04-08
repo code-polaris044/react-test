@@ -1,23 +1,34 @@
-import { useContext } from "react";
-import { Card } from "./components/Card";
-import { AdminFlagContext } from "./components/providers/AdminFlagProvider";
+import { useEffect, useState } from "react";
+import { ListItem } from "./components/Listitem";
+import axios from "axios";
 
-export const App = (): JSX.Element => {
-	//管理者フラグ
-	// const [isAdmin, setIsAdmin] = useState(false);
-	const { isAdmin, setIsAdmin } = useContext(AdminFlagContext);
+type User = {
+	id: number;
+	name: string;
+	age: number;
+	personalColor: string;
+};
 
-	//切り替え押下時
-	const onClickSwitch = (): void => setIsAdmin(!isAdmin);
+export const App = () => {
+	const [users, setUsers] = useState<User[]>([]);
+
+	useEffect(() => {
+		axios.get<User[]>("https://example.com/users").then((res) => {
+			setUsers(res.data);
+		});
+	}, []);
 
 	return (
 		<div>
-			{/*管理者フラグがtrueの時とそれ以外のときで文字出し分け */}
-			{isAdmin ? <span>管理者です</span> : <span>管理者以外です</span>}
-			<button type='submit' onClick={onClickSwitch}>
-				切り替え
-			</button>
-			<Card />
+			{users.map((user) => (
+				<ListItem
+					key={user.id}
+					id={user.id}
+					name={user.name}
+					age={user.age}
+					personalColor={user.personalColor}
+				/>
+			))}
 		</div>
 	);
 };
